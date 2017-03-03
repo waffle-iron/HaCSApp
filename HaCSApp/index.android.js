@@ -5,26 +5,27 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
 
 export default class HaCSApp extends Component {
+  static get defaultProps() {
+    return {
+      title: 'SplashScreen'
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
+        <Image style={{width:150, height: 150}} source={require('./images/logo.png')} />
+        <Text style={styles.welcome}> </Text>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to HaCSApp!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          The official app of the Hackathon and Computing Society at Birmingham City University
         </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
+        <Text style={{color: '#f8f8ff', textAlign: 'center'}} /** onPress={(onContinuePress)} */ >
+          Continue
         </Text>
       </View>
     );
