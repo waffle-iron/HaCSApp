@@ -1,44 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight } from 'react-native';
 
-var Home = require('./app/Home');
-var Splash = require('./app/Splash');
-
-class NavigatorRoutes extends Component {
-  render() {
-    return (
-      <Navigator
-        initialRoute = {{
-          id: 'Splash'
-        }}
-        renderScene={
-          this.navigatorRenderScene
-        }
-      />
-    );
-  }
-
-  navigatorRenderScene(route,navigator){
-    _navigator = navigator;
-    switch (route.id){
-      case 'Splash':
-        return(<Splash navigator={navigator} title="Splash" />);
-      case 'Home':
-        return(<Home navigator={navigator} title="Home" />);
-    }
-  }
-
-}
-
-/** import Splash from './splash.android'; */
-
-export default class HaCSApp extends Component {
+export default class Splash extends Component {
 
   onButtonPress(){
     this.props.navigator.push({
@@ -49,7 +12,7 @@ export default class HaCSApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{width:150, height: 150}} source={require('./images/logo.png')} />
+        <Image style={{width:150, height: 150}} source={require('../images/logo.png')} />
         <Text style={styles.welcome}> </Text>
         <Text style={styles.welcome}>
           Welcome to HaCSApp!
@@ -83,5 +46,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
-AppRegistry.registerComponent('HaCSApp', () => HaCSApp);
