@@ -1,19 +1,30 @@
 import React, { Component} from 'react';
-import { AppRegistry, StyleSheet, Text, Image, View, Navigator } from 'react-native';
+import { AppRegistry, StyleSheet, Text, Image, View, Navigator, Button } from 'react-native';
 
-class Home extends Component {
-  static get defaultProps() {
-    return {
-      title: 'Home',
-      id: 'Home'
-    }
+export default class Home extends Component {
+
+  constructor() {
+    super()
+    this.navigate = this.navigate.bind(this)
   }
+
+  navigate(name) {
+    this.props.navigator.push({
+      name
+    })
+  }
+
   render(){
     return(
       <View style={styles.container}>
-        <Text style={styles.largeText}>
-          This is the Home Page.
+        <Text>
+          Main Menu
         </Text>
+        <Button
+          onPress={() => this.navigate('Events')}
+          color="#ff8c00"
+          title="Events"
+        />
       </View>
     )
   }
@@ -25,9 +36,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  largeText: {
+  title: {
     flex: 1,
-    fontSize: 52,
+    fontSize: 28,
     fontFamily: "Arial",
     paddingTop: 40,
     paddingRight: 20,
@@ -36,3 +47,4 @@ const styles = StyleSheet.create({
 });
 
 module.exports = Home
+/** export default Home */

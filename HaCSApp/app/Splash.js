@@ -1,40 +1,17 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight, Button } from 'react-native';
 
-var Home = require('./Home');
-
-class NavigatorRoutes extends Component {
-  render() {
-    return (
-      <Navigator
-        initialRoute = {{
-          id: 'Splash'
-        }}
-        renderScene={
-          this.navigatorRenderScene
-        }
-      />
-    );
-  }
-
-  navigatorRenderScene(route,navigator){
-    _navigator = navigator;
-    switch (route.id){
-      case 'Splash':
-        return(<Splash navigator={navigator} title="Splash" />);
-      case 'Home':
-        return(<Home navigator={navigator} title="Home" />);
-    }
-  }
-
-}
-
 export default class Splash extends Component {
 
-  onButtonPress(){
+  constructor() {
+    super()
+    this.navigate = this.navigate.bind(this)
+  }
+
+  navigate(name) {
     this.props.navigator.push({
-      id: 'Home'
-    });
+      name
+    })
   }
 
   render() {
@@ -48,9 +25,11 @@ export default class Splash extends Component {
         <Text style={styles.instructions}>
           The official app of the Hackathon and Computing Society at Birmingham City University
         </Text>
-        <Button onPress={this.onButtonPress.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}> Continue </Text>
-        </Button>
+        <Button
+          onPress={() => this.navigate('Home')}
+          title="Continue"
+          color="#ff8c00"
+        />
       </View>
     );
   }
@@ -74,3 +53,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+/** export default Splash */
