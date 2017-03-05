@@ -1,5 +1,33 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight, Button } from 'react-native';
+
+var Home = require('./Home');
+
+class NavigatorRoutes extends Component {
+  render() {
+    return (
+      <Navigator
+        initialRoute = {{
+          id: 'Splash'
+        }}
+        renderScene={
+          this.navigatorRenderScene
+        }
+      />
+    );
+  }
+
+  navigatorRenderScene(route,navigator){
+    _navigator = navigator;
+    switch (route.id){
+      case 'Splash':
+        return(<Splash navigator={navigator} title="Splash" />);
+      case 'Home':
+        return(<Home navigator={navigator} title="Home" />);
+    }
+  }
+
+}
 
 export default class Splash extends Component {
 
@@ -20,9 +48,9 @@ export default class Splash extends Component {
         <Text style={styles.instructions}>
           The official app of the Hackathon and Computing Society at Birmingham City University
         </Text>
-        <TouchableHighlight onPress={this.onButtonPress.bind(this)} style={styles.button}>
+        <Button onPress={this.onButtonPress.bind(this)} style={styles.button}>
           <Text style={styles.buttonText}> Continue </Text>
-        </TouchableHighlight>
+        </Button>
       </View>
     );
   }

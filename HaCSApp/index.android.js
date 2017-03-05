@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Navigator, TouchableHighlight, Button } from 'react-native';
 
 var Home = require('./app/Home');
 var Splash = require('./app/Splash');
@@ -41,9 +41,7 @@ class NavigatorRoutes extends Component {
 export default class HaCSApp extends Component {
 
   onButtonPress(){
-    this.props.navigator.push({
-      id: 'Home'
-    });
+    this.props.navigator.push({ id: 'Home' });
   }
 
   render() {
@@ -57,9 +55,12 @@ export default class HaCSApp extends Component {
         <Text style={styles.instructions}>
           The official app of the Hackathon and Computing Society at Birmingham City University
         </Text>
-        <TouchableHighlight onPress={this.onButtonPress.bind(this)} style={styles.button}>
-          <Text style={styles.buttonText}> Continue </Text>
-        </TouchableHighlight>
+        <Text> </Text>
+        <Button
+          onPress={this.onButtonPress.bind(this)}
+          title="Continue"
+          color="#ff8c00"
+        />
       </View>
     );
   }
