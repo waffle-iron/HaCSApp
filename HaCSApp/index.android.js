@@ -22,6 +22,8 @@ export default class HaCSApp extends Component {
       return <Splash navigator={navigator} />
     } else if(route.name === 'Home') {
       return <Home navigator={navigator} />
+    } else if(route.name === 'Events') {
+      return <Events navigator={navigator} />
     }
   }
 

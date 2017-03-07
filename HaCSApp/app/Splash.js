@@ -25,10 +25,13 @@ export default class Splash extends Component {
         <Text style={styles.instructions}>
           The official app of the Hackathon and Computing Society at Birmingham City University
         </Text>
+        <Text></Text>
+        <Text></Text>
+        <Text></Text>
         <Button
-          onPress={() => this.navigate('Home')}
-          title="Continue"
-          color="#ff8c00"
+            color='#ffa500'
+            title="Continue"
+            onPress={() => this.navigate("Home")}
         />
       </View>
     );

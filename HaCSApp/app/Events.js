@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, Image, View, Navigator } from 'react-native';
 
 class Events extends Component {
@@ -7,7 +7,7 @@ class Events extends Component {
     return(
       <View style={styles.container}>
         <Text style={styles.title}>
-          This is the Events Page.
+          Upcoming Events
         </Text>
       </View>
     )
@@ -21,12 +21,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    flex: 1,
+    color: "#ff8c00",
+    textAlign: 'left',
+    textAlignVertical: 'top',
     fontSize: 28,
     fontFamily: "Arial",
-    paddingTop: 40,
-    paddingRight: 20,
-    paddingLeft: 20,
   }
 });
 
